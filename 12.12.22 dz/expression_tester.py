@@ -1,6 +1,14 @@
 import random
 
 def vastus_kontroll(kasutaja_vastus, real_vastus, tase):
+    if tase == "tase1":
+        kasutaja_vastus = int(kasutaja_vastus)
+        real_vastus = int(real_vastus)
+
+    if tase == "tase2":
+        kasutaja_vastus = round(kasutaja_vastus, 1)
+        real_vastus = round(real_vastus, 1)
+
     if kasutaja_vastus == real_vastus:
         print("Õige vastus")
         return True
@@ -71,9 +79,12 @@ def rakenda_math(operators, val1, val2, tase):
     return oiged_vastused
         
 while True:
-    tase = input("(Sisesta q väljumiseks) Sisesta tase: tase1, tase2, tase3: ")
+    tase = input("(Sisesta q väljumiseks, default tase3) Sisesta tase: tase1, tase2, tase3: ")
     if tase == "q":
         exit(0)
+
+    if tase == "":
+        tase = "tase3"
     
     if tase == "tase1" or tase == "tase2" or tase == "tase3":
         break
@@ -104,12 +115,6 @@ if hinne >= 75 and hinne <= 90:
 
 if hinne > 90:
     print("hinne on 5")
-
-
-
-
-
-
 
 
 
